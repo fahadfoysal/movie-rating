@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'movie/app.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <ul class="nav">
+        <li><a href="{% url 'add_movie' %}">Add a movie</a></li>
+        <li><a href="{% url 'movie_search' %}">Search a movie</a></li>   
+        <li><a href="{% url 'logout' %}">Logout</a></li>   
+    </ul>
+    <div class="movie_list">
+        <h2>Movie List</h2>
+        <ul>
+            {% for movie in movies %}
+                <li><a href="{% url 'movie_detail' movie.id %}">{{ movie.name }}</a> ({{ movie.release_date }})</li>
+                <p>Rate this movie:</p>
+                <form method="post" action="{% url 'rate_movie' movie.id %}">
+                    {% csrf_token %}
+                    <select name="rating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button type="submit">Rate</button>
+                </form>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

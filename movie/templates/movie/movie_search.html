@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Search for Movies</h2>
+    <form method="get" action="{% url 'movie_search' %}">
+        <input type="text" name="q" placeholder="Search by movie name" value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+    
+    <h3>Search Results for "{{ query }}"</h3>
+    <ul>
+        {% if movies %}
+            {% for movie in movies %}
+                <li><a href="{% url 'movie_detail' movie.id %}">{{ movie.name }}</a> ({{ movie.release_date }})</li>
+            {% endfor %}
+        {% else %}
+            <p>No results found</p>
+        {% endif %}
+    </ul>
+</body>
+</html>
+{% endblock %}
