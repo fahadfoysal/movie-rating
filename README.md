@@ -17,7 +17,7 @@ The Movie Rating System allows users to manage movies and rate them. It provides
 
 **Client:** HTML, CSS
 
-**Server:** Python, Django, DRF
+**Server:** Python, Django, DRF, SQLite
 
 
 ## Installation
