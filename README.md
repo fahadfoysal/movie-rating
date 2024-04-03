@@ -25,7 +25,7 @@ The Movie Rating System allows users to manage movies and rate them. It provides
 Clone the repository:
 
 ```bash
-  git clone https://github.com/fahadfoysal/movie-rating-system
+  https://github.com/fahadfoysal/movie-rating
 
 ```
 Install dependencies:
